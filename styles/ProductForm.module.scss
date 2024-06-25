@@ -18,3 +18,14 @@ button {
   color: white;
   cursor: pointer;
 }
+
+@media (max-width: 768px) {
+  .productList {
+    flex-direction: column;
+  }
+
+  .productItem {
+    width: 100%;
+  }
+}
+

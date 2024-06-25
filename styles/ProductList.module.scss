@@ -9,4 +9,42 @@
   padding: 16px;
   border-radius: 8px;
   width: 200px;
+  position: relative;
+  background-color: #fff;
+}
+
+.deleteButton {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  background-color: #e74c3c;
+  color: white;
+  cursor: pointer;
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: #c0392b;
+  }
+
+  &:active {
+    background-color: #a93226;
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.5);
+  }
+}
+
+@media (max-width: 768px) {
+  .productList {
+    flex-direction: column;
+  }
+
+  .productItem {
+    width: 100%;
+  }
 }
