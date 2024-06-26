@@ -2,7 +2,11 @@ import React, { useState } from "react";
 import { Product } from "@/types/product";
 import styles from "@/styles/ProductForm.module.scss";
 
-const ProductForm: React.FC = () => {
+interface ProductFormProps {
+  onAddProduct: (product: Product) => void;
+}
+
+const ProductForm: React.FC<ProductFormProps> = ({ onAddProduct }) => {
   const [product, setProduct] = useState<Partial<Product>>({});
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -12,15 +16,18 @@ const ProductForm: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    fetch("", {
+    fetch(process.env.NEXT_PUBLIC_API_URL!, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(product),
-    }).then(() => {
-      setProduct({});
-    });
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        onAddProduct(data);
+        setProduct({});
+      });
   };
 
   return (
