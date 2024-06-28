@@ -14,10 +14,10 @@ const SortProduct: React.FC<SortProductProps> = ({
       onChange={(e) => setSortCriteria(e.target.value)}
       value={sortCriteria}
     >
-      <option value="Default">Sort</option>
-      <option value="Price">Price</option>
-      <option value="Popularity">Popularity</option>
-      <option value="Date">Date</option>
+      <option value="default">Sort By</option>
+      <option value="price">Price</option>
+      <option value="popularity">Popularity</option>
+      <option value="date">Date</option>
     </select>
   );
 };

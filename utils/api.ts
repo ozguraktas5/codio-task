@@ -4,7 +4,12 @@ const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
 export const fetchProducts = async (): Promise<Product[]> => {
   const response = await fetch(API_URL!);
-  return response.json();
+  const data = await response.json();
+  return data.map((product: any) => ({
+    ...product,
+    popularity: product.popularity || 0,
+    createdAt: product.createdAt || new Date().toISOString(),
+  }));
 };
 
 export const fetchProductById = async (id: number): Promise<Product> => {

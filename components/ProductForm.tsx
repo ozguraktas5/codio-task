@@ -63,6 +63,12 @@ const ProductForm: React.FC<ProductFormProps> = ({ onAddProduct }) => {
         onChange={handleChange}
         placeholder="Price"
       />
+      <input
+        name="imageUrl"
+        value={product.imageUrl || ""}
+        onChange={handleChange}
+        placeholder="Image URL"
+      />
       <button type="submit">Add Product</button>
     </form>
   );
