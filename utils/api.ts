@@ -3,7 +3,7 @@ import { Product } from "@/types/product";
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
 export const fetchProducts = async (): Promise<Product[]> => {
-  const response = await fetch(API_URL);
+  const response = await fetch(API_URL!);
   return response.json();
 };
 
@@ -13,7 +13,7 @@ export const fetchProductById = async (id: number): Promise<Product> => {
 };
 
 export const addProduct = async (product: Partial<Product>): Promise<void> => {
-  await fetch(API_URL, {
+  await fetch(API_URL!, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
