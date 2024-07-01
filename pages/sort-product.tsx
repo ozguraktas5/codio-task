@@ -1,3 +1,4 @@
+import useTranslation from "next-translate/useTranslation";
 import React from "react";
 
 interface SortProductProps {
@@ -9,15 +10,16 @@ const SortProduct: React.FC<SortProductProps> = ({
   sortCriteria,
   setSortCriteria,
 }) => {
+  const { t } = useTranslation('common');
   return (
     <select
       onChange={(e) => setSortCriteria(e.target.value)}
       value={sortCriteria}
     >
-      <option value="default">Sort By</option>
-      <option value="price">Price</option>
-      <option value="popularity">Popularity</option>
-      <option value="date">Date</option>
+      <option value="default">{t("sortby")}</option>
+      <option value="price">{t("price")}</option>
+      <option value="popularity">{t("popularity")}</option>
+      <option value="date">{t("date")}</option>
     </select>
   );
 };

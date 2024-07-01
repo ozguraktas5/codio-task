@@ -8,5 +8,7 @@
   "popularity": "Popülerlik",
   "created_at": "Oluşturulma Tarihi",
   "edit": "Düzenle",
-  "delete": "Sil"
+  "delete": "Sil",
+  "sortby": "Sırala",
+  "date": "Tarih"
 }

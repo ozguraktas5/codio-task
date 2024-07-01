@@ -8,5 +8,7 @@
   "popularity": "Popularity",
   "created_at": "Created At",
   "edit": "Edit",
-  "delete": "Delete"
+  "delete": "Delete",
+  "sortby": "Sort By",
+  "date": "Date"
 }

@@ -54,6 +54,7 @@ const ProductList: React.FC = () => {
 
   return (
     <div>
+      <h1>{t('title')}</h1>
       <LanguageSwitcher />
       <SortProduct
         sortCriteria={sortCriteria}
