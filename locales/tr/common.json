@@ -6,7 +6,7 @@
   "color": "Renk",
   "price": "Fiyat",
   "popularity": "Popülerlik",
-  "created_at": "Oluşturulma Tarihi",
+  "created_at": "Oluşturulma Zamanı",
   "edit": "Düzenle",
   "delete": "Sil",
   "sortby": "Sırala",

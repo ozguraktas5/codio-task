@@ -1,3 +1,39 @@
+:root {
+  --background-color: #ffffff;
+  --text-color: #000000;
+  --product-background-color: #f0f0f0; /* Varsayılan ürün arka plan rengi */
+  --product-text-color: #000000; /* Varsayılan ürün yazı rengi */
+}
+
+[data-theme="dark"] {
+  --background-color: #121212;
+  --text-color: #ffffff;
+  --product-background-color: #333333; /* Koyu modda ürün arka plan rengi */
+  --product-text-color: #ffffff; /* Koyu modda ürün yazı rengi */
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.productItem {
+  background-color: var(--product-background-color);
+  color: var(--product-text-color);
+  border: 1px solid #ddd;
+  padding: 16px;
+  margin: 8px;
+  border-radius: 8px;
+}
+
+.productItem h3 {
+  color: var(--product-text-color);
+}
+
+.productItem p {
+  color: var(--product-text-color);
+}
+
 @media (max-width: 768px) {
   .productList {
     flex-direction: column;

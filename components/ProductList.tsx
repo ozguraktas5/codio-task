@@ -6,6 +6,7 @@ import styles from "../styles/ProductList.module.scss";
 import { fetchProducts, deleteProduct } from "../utils/api";
 import SortProduct from "@/pages/sort-product";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
+import ThemeSwitcher from "@/components/ThemeSwitcher";
 
 const ProductList: React.FC = () => {
   const { t } = useTranslation('common');
@@ -55,6 +56,7 @@ const ProductList: React.FC = () => {
   return (
     <div>
       <h1>{t('title')}</h1>
+      <ThemeSwitcher />
       <LanguageSwitcher />
       <SortProduct
         sortCriteria={sortCriteria}
