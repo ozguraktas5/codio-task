@@ -1,0 +1,12 @@
+{
+  "title": "Product Management",
+  "add_product": "Add Product",
+  "brand": "Brand",
+  "model": "Model",
+  "color": "Color",
+  "price": "Price",
+  "popularity": "Popularity",
+  "created_at": "Created At",
+  "edit": "Edit",
+  "delete": "Delete"
+}

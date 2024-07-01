@@ -1,0 +1,12 @@
+{
+  "title": "Ürün Yönetimi",
+  "add_product": "Ürün Ekle",
+  "brand": "Marka",
+  "model": "Model",
+  "color": "Renk",
+  "price": "Fiyat",
+  "popularity": "Popülerlik",
+  "created_at": "Oluşturulma Tarihi",
+  "edit": "Düzenle",
+  "delete": "Sil"
+}

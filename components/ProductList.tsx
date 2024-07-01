@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
+import useTranslation from 'next-translate/useTranslation';
 import { Product } from "@/types/product";
 import styles from "../styles/ProductList.module.scss";
 import { fetchProducts, deleteProduct } from "../utils/api";
 import SortProduct from "@/pages/sort-product";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 
 const ProductList: React.FC = () => {
+  const { t } = useTranslation('common');
   const [products, setProducts] = useState<Product[]>([]);
   const [sortCriteria, setSortCriteria] = useState<string>("default");
   const router = useRouter();
@@ -51,6 +54,7 @@ const ProductList: React.FC = () => {
 
   return (
     <div>
+      <LanguageSwitcher />
       <SortProduct
         sortCriteria={sortCriteria}
         setSortCriteria={setSortCriteria}
@@ -62,13 +66,13 @@ const ProductList: React.FC = () => {
               <img src={product.imageUrl} alt={product.name} className={styles.productImage} />
             )}
             <h3>{product.name}</h3>
-            <p>Brand: {product.brand}</p>
-            <p>Model: {product.model}</p>
-            <p>Color: {product.color}</p>
-            <p>Price: ${product.price}</p>
-            <p>Popularity: {product.popularity}</p>
+            <p>{t('brand')}: {product.brand}</p>
+            <p>{t('model')}: {product.model}</p>
+            <p>{t('color')}: {product.color}</p>
+            <p>{t('price')}: ${product.price}</p>
+            <p>{t('popularity')}: {product.popularity}</p>
             <p>
-              Created At:{" "}
+              {t('created_at')}:
               {new Date(product.createdAt).toLocaleDateString("tr-TR", {
                 day: "2-digit",
                 month: "2-digit",
@@ -80,13 +84,13 @@ const ProductList: React.FC = () => {
               className={styles.editButton}
               onClick={() => handleEdit(product.id)}
             >
-              Edit
+              {t('edit')}
             </button>
             <button
               className={styles.deleteButton}
               onClick={() => handleDelete(product.id)}
             >
-              Delete
+              {t('delete')}
             </button>
           </div>
         ))}
