@@ -92,7 +92,7 @@ const ProductList: React.FC = () => {
               {t("popularity")}: {product.popularity}
             </div>
             <div>
-              {t("created_at")}:
+              {t("created_at")}:&nbsp;
               {new Date(product.createdAt).toLocaleDateString("tr-TR", {
                 day: "2-digit",
                 month: "2-digit",
