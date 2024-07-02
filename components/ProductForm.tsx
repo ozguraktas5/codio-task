@@ -1,13 +1,17 @@
 import React, { useState } from "react";
 import { Product } from "@/types/product";
 import styles from "@/styles/ProductForm.module.scss";
+import { useRouter } from "next/router";
+import useTranslation from "next-translate/useTranslation";
 
 interface ProductFormProps {
   onAddProduct: (product: Product) => void;
 }
 
 const ProductForm: React.FC<ProductFormProps> = ({ onAddProduct }) => {
+  const { t } = useTranslation("common");
   const [product, setProduct] = useState<Partial<Product>>({});
+  const router = useRouter();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -28,6 +32,10 @@ const ProductForm: React.FC<ProductFormProps> = ({ onAddProduct }) => {
         onAddProduct(data);
         setProduct({});
       });
+  };
+
+  const handleBack = () => {
+    router.push("/");
   };
 
   return (
@@ -69,7 +77,10 @@ const ProductForm: React.FC<ProductFormProps> = ({ onAddProduct }) => {
         onChange={handleChange}
         placeholder="Image URL"
       />
-      <button type="submit">Add Product</button>
+      <div className={styles.buttons}>
+        <button onClick={handleBack}>{t("back")}</button>
+        <button type="submit">{t("save")}</button>
+      </div>
     </form>
   );
 };

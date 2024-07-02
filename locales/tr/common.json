@@ -1,6 +1,9 @@
 {
   "title": "Ürün Yönetimi",
   "add_product": "Ürün Ekle",
+  "edit_product": "Ürünü Düzenle",
+  "save": "Kaydet",
+  "back": "Geri",
   "brand": "Marka",
   "model": "Model",
   "color": "Renk",

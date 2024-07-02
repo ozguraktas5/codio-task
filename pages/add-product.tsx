@@ -3,8 +3,11 @@ import { useRouter } from "next/router";
 import ProductForm from "../components/ProductForm";
 import { Product } from "@/types/product";
 import { fetchProducts } from "@/utils/api";
+import styles from "@/styles/ProductForm.module.scss";
+import useTranslation from "next-translate/useTranslation";
 
 const AddProductPage: React.FC = () => {
+  const { t } = useTranslation("common");
   const [products, setProducts] = useState<Product[]>([]);
   const router = useRouter();
 
@@ -22,8 +25,8 @@ const AddProductPage: React.FC = () => {
     router.push("/tr");
   };
   return (
-    <div>
-      <h1>Add New Product</h1>
+    <div className={styles.productForm}>
+      <h1>{t("add_product")}</h1>
       <ProductForm onAddProduct={handleAddProduct} />
     </div>
   );

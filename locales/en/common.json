@@ -1,6 +1,9 @@
 {
   "title": "Product Management",
   "add_product": "Add Product",
+  "edit_product": "Edit Product",
+  "save": "Save",
+  "back": "Back",
   "brand": "Brand",
   "model": "Model",
   "color": "Color",

@@ -20,10 +20,10 @@ body {
 .productItem {
   background-color: var(--product-background-color);
   color: var(--product-text-color);
-  border: 1px solid #ddd;
-  padding: 16px;
-  margin: 8px;
-  border-radius: 8px;
+  border: 0.1rem solid #ddd;
+  padding: 1rem;
+  margin: 0.5rem;
+  border-radius: 0.5rem;
 }
 
 .productItem h3 {
