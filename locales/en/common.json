@@ -13,5 +13,8 @@
   "edit": "Edit",
   "delete": "Delete",
   "sortby": "Sort By",
-  "date": "Date"
+  "date": "Date",
+  "name": "Name",
+  "image_url": "Image URL",
+  "all_fields_required": "Please fill in all required fields"
 }

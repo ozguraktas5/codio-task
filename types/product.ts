@@ -7,5 +7,5 @@ export interface Product {
   price: number;
   popularity: number;
   createdAt: string;
-  imageUrl: string;
+  imageUrl?: string;
 }

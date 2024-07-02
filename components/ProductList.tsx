@@ -38,6 +38,10 @@ const ProductList: React.FC = () => {
     router.push(`/edit-product?id=${id}`);
   };
 
+  const handleAddProduct = () => {
+    router.push("/add-product");
+  };
+
   const sortProducts = (criteria: string) => {
     const sortedProducts = [...products];
     if (criteria === "price") {
@@ -63,6 +67,9 @@ const ProductList: React.FC = () => {
           sortCriteria={sortCriteria}
           setSortCriteria={setSortCriteria}
         />
+        <button className={styles.addButton} onClick={handleAddProduct}>
+          {t("add_product")}
+        </button>
       </div>
 
       <div className={styles.productList}>

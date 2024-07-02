@@ -11,6 +11,7 @@ interface ProductFormProps {
 const ProductForm: React.FC<ProductFormProps> = ({ onAddProduct }) => {
   const { t } = useTranslation("common");
   const [product, setProduct] = useState<Partial<Product>>({});
+  const [error, setError] = useState<string | null>(null);
   const router = useRouter();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -18,8 +19,26 @@ const ProductForm: React.FC<ProductFormProps> = ({ onAddProduct }) => {
     setProduct((prev) => ({ ...prev, [name]: value }));
   };
 
+  const validateForm = () => {
+    if (
+      !product.name ||
+      !product.brand ||
+      !product.model ||
+      !product.color ||
+      !product.price
+    ) {
+      return t("all_fields_required");
+    }
+    return null;
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    const validationError = validateForm();
+    if (validationError) {
+      setError(validationError);
+      return;
+    }
     fetch(process.env.NEXT_PUBLIC_API_URL!, {
       method: "POST",
       headers: {
@@ -31,6 +50,7 @@ const ProductForm: React.FC<ProductFormProps> = ({ onAddProduct }) => {
       .then((data) => {
         onAddProduct(data);
         setProduct({});
+        setError(null);
       });
   };
 
@@ -44,41 +64,44 @@ const ProductForm: React.FC<ProductFormProps> = ({ onAddProduct }) => {
         name="name"
         value={product.name || ""}
         onChange={handleChange}
-        placeholder="Name"
+        placeholder={t("name")}
       />
       <input
         name="brand"
         value={product.brand || ""}
         onChange={handleChange}
-        placeholder="Brand"
+        placeholder={t("brand")}
       />
       <input
         name="model"
         value={product.model || ""}
         onChange={handleChange}
-        placeholder="Model"
+        placeholder={t("model")}
       />
       <input
         name="color"
         value={product.color || ""}
         onChange={handleChange}
-        placeholder="Color"
+        placeholder={t("color")}
       />
       <input
         name="price"
         type="number"
         value={product.price || ""}
         onChange={handleChange}
-        placeholder="Price"
+        placeholder={t("price")}
       />
       <input
         name="imageUrl"
         value={product.imageUrl || ""}
         onChange={handleChange}
-        placeholder="Image URL"
+        placeholder={t("image_url")}
       />
+      {error && <div className={styles.error}>{error}</div>}
       <div className={styles.buttons}>
-        <button onClick={handleBack}>{t("back")}</button>
+        <button type="button" onClick={handleBack}>
+          {t("back")}
+        </button>
         <button type="submit">{t("save")}</button>
       </div>
     </form>

@@ -13,5 +13,9 @@
   "edit": "Düzenle",
   "delete": "Sil",
   "sortby": "Sırala",
-  "date": "Tarih"
+  "date": "Tarih",
+  "name": "İsim",
+  "image_url": "Resim URL'si",
+  "all_fields_required": "Lütfen tüm zorunlu alanları doldurun"
+
 }
