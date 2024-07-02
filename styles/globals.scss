@@ -1,15 +1,15 @@
 :root {
-  --background-color: #ffffff;
-  --text-color: #000000;
-  --product-background-color: #f0f0f0; /* Varsayılan ürün arka plan rengi */
-  --product-text-color: #000000; /* Varsayılan ürün yazı rengi */
+  --background-color: #fff;
+  --text-color: #000;
+  --product-background-color: #f0f0f0; 
+  --product-text-color: #000; 
 }
 
 [data-theme="dark"] {
   --background-color: #121212;
-  --text-color: #ffffff;
-  --product-background-color: #333333; /* Koyu modda ürün arka plan rengi */
-  --product-text-color: #ffffff; /* Koyu modda ürün yazı rengi */
+  --text-color: #fff;
+  --product-background-color: #333; /* Koyu modda ürün arka plan rengi */
+  --product-text-color: #fff; /* Koyu modda ürün yazı rengi */
 }
 
 body {
