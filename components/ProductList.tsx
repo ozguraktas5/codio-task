@@ -22,7 +22,7 @@ const ProductList: React.FC = () => {
     if (sortCriteria !== "default") {
       sortProducts(sortCriteria);
     }
-  }, [sortCriteria, products]);
+  }, [sortCriteria]);
 
   const loadProducts = async () => {
     const data = await fetchProducts();
@@ -73,56 +73,60 @@ const ProductList: React.FC = () => {
       </div>
 
       <div className={styles.productList}>
-        {products.map((product) => (
-          <div key={product.id} className={styles.productItem}>
-            {product.imageUrl && (
-              <img
-                src={product.imageUrl}
-                alt={product.name}
-                className={styles.productImage}
-              />
-            )}
-            <h3>{product.name}</h3>
-            <div>
-              {t("brand")}: {product.brand}
-            </div>
-            <div>
-              {t("model")}: {product.model}
-            </div>
-            <div>
-              {t("color")}: {product.color}
-            </div>
-            <div>
-              {t("price")}: ${product.price}
-            </div>
-            <div>
-              {t("popularity")}: {product.popularity}
-            </div>
-            <div>
-              {t("created_at")}:&nbsp;
-              {new Date(product.createdAt).toLocaleDateString("tr-TR", {
-                day: "2-digit",
-                month: "2-digit",
-                year: "numeric",
-              })}
-            </div>
+        {products.length === 0 ? (
+          <div className={styles.noProducts}>{t("no_products")}</div>
+        ) : (
+          products.map((product) => (
+            <div key={product.id} className={styles.productItem}>
+              {product.imageUrl && (
+                <img
+                  src={product.imageUrl}
+                  alt={product.name}
+                  className={styles.productImage}
+                />
+              )}
+              <h3>{product.name}</h3>
+              <div>
+                {t("brand")}: {product.brand}
+              </div>
+              <div>
+                {t("model")}: {product.model}
+              </div>
+              <div>
+                {t("color")}: {product.color}
+              </div>
+              <div>
+                {t("price")}: ${product.price}
+              </div>
+              <div>
+                {t("popularity")}: {product.popularity}
+              </div>
+              <div>
+                {t("created_at")}:&nbsp;
+                {new Date(product.createdAt).toLocaleDateString("tr-TR", {
+                  day: "2-digit",
+                  month: "2-digit",
+                  year: "numeric",
+                })}
+              </div>
 
-            <div className={styles.buttons}>
-              <button
-                className={styles.editButton}
-                onClick={() => handleEdit(product.id)}
-              >
-                {t("edit")}
-              </button>
-              <button
-                className={styles.deleteButton}
-                onClick={() => handleDelete(product.id)}
-              >
-                {t("delete")}
-              </button>
+              <div className={styles.buttons}>
+                <button
+                  className={styles.editButton}
+                  onClick={() => handleEdit(product.id)}
+                >
+                  {t("edit")}
+                </button>
+                <button
+                  className={styles.deleteButton}
+                  onClick={() => handleDelete(product.id)}
+                >
+                  {t("delete")}
+                </button>
+              </div>
             </div>
-          </div>
-        ))}
+          ))
+        )}
       </div>
     </div>
   );

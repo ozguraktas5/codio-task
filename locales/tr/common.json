@@ -16,6 +16,6 @@
   "date": "Tarih",
   "name": "İsim",
   "image_url": "Resim URL'si",
-  "all_fields_required": "Lütfen tüm zorunlu alanları doldurun"
-
+  "all_fields_required": "Lütfen tüm zorunlu alanları doldurun",
+  "no_products": "Ürün bulunamadı"
 }
