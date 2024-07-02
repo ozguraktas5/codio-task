@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 import ProductForm from "../components/ProductForm";
 import { Product } from "@/types/product";
 import { fetchProducts } from "@/utils/api";
 
 const AddProductPage: React.FC = () => {
   const [products, setProducts] = useState<Product[]>([]);
+  const router = useRouter();
 
   useEffect(() => {
     loadProducts();
@@ -17,6 +19,7 @@ const AddProductPage: React.FC = () => {
 
   const handleAddProduct = (newProduct: Product) => {
     setProducts((prevProducts) => [...prevProducts, newProduct]);
+    router.push("/tr");
   };
   return (
     <div>
