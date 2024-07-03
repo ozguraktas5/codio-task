@@ -13,6 +13,7 @@ interface ThemeContextType {
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
+// Temanin durumunu yonetme fonksiyonu
 export const ThemeProvider: React.FC<{ children: ReactNode }> = ({
   children,
 }) => {

@@ -4,6 +4,7 @@ import i18nConfig from '@/i18n.json';
 const LanguageSwitcher: React.FC = () => {
   const router = useRouter();
 
+  // Dil degisikligini uygulayan fonksiyon
   const changeLanguage = async (e: React.ChangeEvent<HTMLSelectElement>) => {
     const newLocale = e.target.value;
     const { pathname, asPath, query } = router;

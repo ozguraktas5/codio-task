@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
-import useTranslation from "next-translate/useTranslation";
+import useTranslation from "next-translate/useTranslation"; // Coklu dil destegi saglar
 import { Product } from "@/types/product";
 import styles from "../styles/ProductList.module.scss";
 import { fetchProducts, deleteProduct } from "../utils/api";
@@ -14,10 +14,12 @@ const ProductList: React.FC = () => {
   const [sortCriteria, setSortCriteria] = useState<string>("default");
   const router = useRouter();
 
+  // Urunleri ekranda gostermeye yarar
   useEffect(() => {
     loadProducts();
   }, []);
 
+  // Urunlerin sıralanmıs sekilde en guncel halini ekranda gostermeye yarar
   useEffect(() => {
     if (sortCriteria !== "default") {
       sortProducts(sortCriteria);

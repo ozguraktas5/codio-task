@@ -14,11 +14,13 @@ const ProductForm: React.FC<ProductFormProps> = ({ onAddProduct }) => {
   const [error, setError] = useState<string | null>(null);
   const router = useRouter();
 
+  // Formdaki degisiklikleri yonetmeye yarar.
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setProduct((prev) => ({ ...prev, [name]: value }));
   };
 
+  // Tum gerekli alanlarin doldurulup doldurulmadigini kontrol eder ve eksik alan varsa hata mesajı doner.
   const validateForm = () => {
     if (
       !product.name ||
@@ -54,6 +56,7 @@ const ProductForm: React.FC<ProductFormProps> = ({ onAddProduct }) => {
       });
   };
 
+  // Islemi geri alma fonksiyonu
   const handleBack = () => {
     router.push("/");
   };
